@@ -1,22 +1,22 @@
 'use strict';
-var ip = "10.0.0.1";
+var ip = "localhost";
 var missilesShobApp = angular.module('missilesShobApp', ['ngRoute', 'ngMap'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/main.html',
+                templateUrl: 'html/views/main.html',
                 controller: 'MainCtrl'
             })
             .when('/Shelters', {
-                templateUrl: 'views/shelters.html',
+                templateUrl: 'html/views/shelters.html',
                 controller: 'ShelterCtl'
             })
            .when('/Falls', {
-                templateUrl: 'views/falls.html',
+                templateUrl: 'html/views/falls.html',
                 controller: 'FallCtl'
             })
             .when('/Team', {
-                templateUrl: 'views/team.html',
+                templateUrl: 'html/views/team.html',
                 controller: 'TeamCtl'
             })
             .otherwise({

@@ -24,7 +24,7 @@ import com.mongodb.util.JSON;
 /**
  * Created by orkazaz on 1/28/15.
  */
-@Path("/shelter")
+@Path("/shelters")
 public class SheltersResource {
 	
 	ObjectMapper mapper = new ObjectMapper();

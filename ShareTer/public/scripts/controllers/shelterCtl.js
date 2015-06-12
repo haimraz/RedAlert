@@ -5,21 +5,6 @@ missilesShobApp.controller('ShelterCtl', ['$scope', '$http', function ($scope, $
     $scope.shelter = new Object();
     $scope.shelters = [];
     $scope.addShelter = function () {
-          var shelterCopy = angular.copy($scope.shelter)
-            $scope.shelters.push(shelterCopy);
-            var latlng = new google.maps.LatLng(shelterCopy.x,shelterCopy.y);
-            var marker = new google.maps.Marker({
-                position: latlng,
-                map: map,
-                animation: google.maps.Animation.DROP,
-                title: shelterCopy.name
-            });
-         var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
-         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
-        });
         $http.post(ip + '/addShelter', angular.toJson($scope.shelter))
         success(function (data, status, headers, config) {
             alertify.success("add new shelter success", 5);
@@ -31,6 +16,12 @@ missilesShobApp.controller('ShelterCtl', ['$scope', '$http', function ($scope, $
                 map: map,
                 animation: google.maps.Animation.DROP,
                 title: shelterCopy.name
+            });
+              var infowindow = new google.maps.InfoWindow({
+                 content: '<h4>' + shelterCopy.name + '</h4>'
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,marker);
             });
             $scope.shelter = new Object();
         }).error(function (error) {
@@ -58,9 +49,9 @@ missilesShobApp.controller('ShelterCtl', ['$scope', '$http', function ($scope, $
             $scope.$apply();
         });
 
-
+    
     //addListener();
-    $http.get(ip + '/shelters').success(function (data, status, headers, config) {
+    $http.get('/shelters').success(function (data, status, headers, config) {
         alertify.success("Load shelters success", 5);
         $scope.shelters = data.shelters;
     }).error(function (error) {

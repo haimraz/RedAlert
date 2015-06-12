@@ -28,12 +28,29 @@ import com.mongodb.util.JSON;
 /**
  * Created by orkazaz on 1/28/15.
  */
-@Path("/static/{seg: .*}")
+@Path("/static")
 public class StaticResource {
 	
 	ObjectMapper mapper = new ObjectMapper();
 	
     @GET
+    @Produces(value = MediaType.TEXT_HTML)
+    @Path("/html/{seg: .*}")
+    public Response getFilehtml(@Context UriInfo uriInfo) {
+    	String path = uriInfo.getAbsolutePath().getPath();
+    	path = path.substring(1);
+    	path = path.substring(path.indexOf("/"));
+    	path = path.substring(1);
+    	path = path.substring(path.indexOf("/"));
+    	try {
+    		return Response.ok(new File("public" + path)).build();
+    	} catch (Exception e) {
+    		return Response.status(404).build();
+    	}
+    }
+    
+    @GET
+    @Path("/{seg: .*}")
     public Response getFile(@Context UriInfo uriInfo) {
     	String path = uriInfo.getAbsolutePath().getPath();
     	path = path.substring(1);
