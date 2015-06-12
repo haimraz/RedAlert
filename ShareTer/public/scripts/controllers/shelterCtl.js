@@ -4,7 +4,7 @@ var infowindow = null;
 missilesShobApp.controller('ShelterCtl', ['$scope', '$http', function ($scope, $http) {
     $scope.shelter = new Object();
     $scope.shelters = [];
-    $scope.addShelter = function () {
+    $scope.addFall = function () {
         $http.post(ip + '/addShelter', angular.toJson($scope.shelter))
         success(function (data, status, headers, config) {
             alertify.success("add new shelter success", 5);
@@ -50,7 +50,6 @@ missilesShobApp.controller('ShelterCtl', ['$scope', '$http', function ($scope, $
         });
 
     
-    //addListener();
     $http.get('/shelters').success(function (data, status, headers, config) {
         alertify.success("Load shelters success", 5);
         $scope.shelters = data.shelters;
