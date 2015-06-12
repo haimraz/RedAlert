@@ -1,4 +1,5 @@
 'use strict';
+var ip = "10.0.0.1";
 var missilesShobApp = angular.module('missilesShobApp', ['ngRoute', 'ngMap'])
     .config(function ($routeProvider) {
         $routeProvider
@@ -8,15 +9,15 @@ var missilesShobApp = angular.module('missilesShobApp', ['ngRoute', 'ngMap'])
             })
             .when('/Shelters', {
                 templateUrl: 'views/shelters.html',
-                controller: 'ShelterCtrl'
+                controller: 'ShelterCtl'
             })
            .when('/Falls', {
                 templateUrl: 'views/falls.html',
-                controller: 'FallCtrl'
+                controller: 'FallCtl'
             })
             .when('/Team', {
                 templateUrl: 'views/team.html',
-                controller: 'TeamCtrl'
+                controller: 'TeamCtl'
             })
             .otherwise({
                 redirectTo: '/'

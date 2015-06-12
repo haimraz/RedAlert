@@ -1,4 +1,4 @@
-missilesShobApp.controller('TeamCtrl', function ($scope) {
+missilesShobApp.controller('TeamCtl', function ($scope) {
      $scope.teamData = [{
              Name: "חיים רייצב",
              Role: "מפתח צד לקוח",
