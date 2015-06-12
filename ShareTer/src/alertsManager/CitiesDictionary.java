@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -14,18 +15,9 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 public class CitiesDictionary {
 
-	private static HashMap<String, List<City>> citiesById;
+	private static HashMap<String, List<City>> citiesById = loadCitiyesById();
 
 	public static List<City> getCitiesById(String id) {
-		if (citiesById == null) {
-			try {
-				loadCitiyesById();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
 		if (citiesById.containsKey(id)) {
 			return citiesById.get(id);
 		} else {
@@ -38,10 +30,18 @@ public class CitiesDictionary {
 		JsonNode node = mapper.convertValue(citiesById, JsonNode.class);
 		return node;
 	}
+	
+	public static Set<String> getAllSpaces() {
+		
+		return citiesById.keySet();
+	}
 
 	@SuppressWarnings("unchecked")
-	private static void loadCitiyesById() throws FileNotFoundException,
-			IOException {
+	private static HashMap<String, List<City>> loadCitiyesById() {
+
+		try
+		{
+			
 
 		citiesById = new HashMap<String, List<City>>();
 
@@ -69,6 +69,14 @@ public class CitiesDictionary {
 				}
 			}
 		}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return null;
+		}
+		
+		return citiesById;
 	}
 
 	public static List<String> getRandomCitiesID() {

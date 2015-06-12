@@ -4,8 +4,8 @@ var missilesShobApp = angular.module('missilesShobApp', ['ngRoute', 'ngMap'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'html/views/main.html',
-                controller: 'MainCtrl'
+                templateUrl: 'html/views/Team.html',
+                controller: 'TeamCtl'
             })
             .when('/Shelters', {
                 templateUrl: 'html/views/shelters.html',
@@ -26,4 +26,4 @@ var missilesShobApp = angular.module('missilesShobApp', ['ngRoute', 'ngMap'])
             .otherwise({
                 redirectTo: '/'
             });
-    });
+});

@@ -36,6 +36,10 @@ public class MongoCon {
 		return getClient().getDB("redalert").getCollection("shelters");
 	}
 	
+	public static DBCollection getRegistrationIdCol() {
+		return getClient().getDB("redalert").getCollection("Registrations");
+	}
+	
 	public static DBCollection getFallsCol() {
 		return getClient().getDB("redalert").getCollection("falls");
 	}

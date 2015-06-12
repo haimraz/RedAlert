@@ -5,22 +5,22 @@ missilesShobApp.controller('FallCtl', ['$scope', '$http', function ($scope, $htt
     $scope.fall = new Object();
     $scope.falls = [];
     $scope.addFall = function () {
-         var fallCopy = angular.copy($scope.fall)
-            $scope.falls.push(fallCopy);
-            var latlng = new google.maps.LatLng(fallCopy.x,fallCopy.y);
-            var marker = new google.maps.Marker({
-                position: latlng,
-                map: map,
-                animation: google.maps.Animation.DROP,
-                title: fallCopy.name
-            });
-              var infowindow = new google.maps.InfoWindow({
-                 content: '<h4>' + fallCopy.name + '</h4>'
-            });
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map,marker);
-            });
-            $scope.fall = new Object();
+//         var fallCopy = angular.copy($scope.fall)
+//            $scope.falls.push(fallCopy);
+//            var latlng = new google.maps.LatLng(fallCopy.x,fallCopy.y);
+//            var marker = new google.maps.Marker({
+//                position: latlng,
+//                map: map,
+//                animation: google.maps.Animation.DROP,
+//                title: fallCopy.name
+//            });
+//              var infowindow = new google.maps.InfoWindow({
+//                 content: '<h4>' + 'נפילה' + '</h4>'
+//            });
+//            google.maps.event.addListener(marker, 'click', function() {
+//                infowindow.open(map,marker);
+//            });
+//            $scope.fall = new Object();
         $http.post(ip + '/addFall', angular.toJson($scope.fall))
         success(function (data, status, headers, config) {
             alertify.success("add new shelter success", 5);

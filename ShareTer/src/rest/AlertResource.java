@@ -1,7 +1,9 @@
 package rest;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -9,7 +11,6 @@ import javax.ws.rs.core.Response;
 import org.codehaus.jackson.JsonNode;
 
 import services.GCM;
-
 import alertsManager.CitiesDictionary;
 import alertsManager.City;
 
@@ -26,5 +27,13 @@ public class AlertResource {
 		GCM.SendAlertNotification(cities, msg);
 		
 		return Response.ok().build();
+	}
+	
+	@GET
+	public Response getSpaces() {
+		Set<String> spaces = 
+				CitiesDictionary.getAllSpaces();
+		
+		return Response.ok(spaces).build();
 	}
 }

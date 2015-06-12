@@ -16,7 +16,7 @@ import alertsManager.City;
 
 public class GCM {
 	private static String GCM_URL = "https://android.googleapis.com/gcm/send";
-	private static String API_KEY = "AIzaSyB6KDOPgjpxk__9ASRnLW2brYJ0T03hrSE";
+	private static String API_KEY = "AIzaSyBd6eCosTa_9Cr11axlWC3xRyt9zSCnb-w";
 	private static String PROJECT_ID = "548355374500";
 
 	public static void SendAlertNotification(List<City> cities, String title) {
@@ -41,7 +41,7 @@ public class GCM {
 		
 		ClientResponse response = webResource.accept("application/json")
 							.header("Authorization", "key=" + API_KEY)
-							.post(ClientResponse.class);
+							.post(ClientResponse.class, jsnMessage.toString());
 		 
 		if (response.getStatus() == 200) {
 			Logger.getGlobal().info("notifications sent: " + response.getEntity(String.class));
