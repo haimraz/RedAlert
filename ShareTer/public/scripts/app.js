@@ -19,6 +19,10 @@ var missilesShobApp = angular.module('missilesShobApp', ['ngRoute', 'ngMap'])
                 templateUrl: 'html/views/team.html',
                 controller: 'TeamCtl'
             })
+             .when('/Alerts', {
+                templateUrl: 'html/views/alert.html',
+                controller: 'AlertCtl'
+            })
             .otherwise({
                 redirectTo: '/'
             });

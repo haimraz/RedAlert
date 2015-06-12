@@ -1,17 +1,5 @@
-<h2 class="text-right">מדמה התראות</h2>
+<h2 class="text-right">מדמה נפילות</h2>
 <div class="row">
-    <div class="col-lg-4 text-right" style="float:right;direction:rtl">
-        <label>שם ההתרעה</label>
-        <input class="form-control" data-ng-model="fall.name" type="text" />
-    </div>
-    <div class="col-lg-4 text-right" style="float:right;direction:rtl">
-        <label>מרחב</label>
-        <input class="form-control" type="text" data-ng-model="fall.space" />
-    </div>
-    <div class="col-lg-4 text-right" style="float:right;direction:rtl">
-        <label>עיר</label>
-        <input class="form-control" type="text" data-ng-model="fall.city" />
-    </div>
       <div class="col-lg-4 text-right" style="float:right;direction:rtl">
         <label>קורדינתת X</label>
           <input class="form-control" type="text" data-ng-model="fall.x" />
@@ -22,7 +10,7 @@
     </div>
     <div class="col-lg-2 text-right" style="float:right;direction:rtl">
         <div class="form-group">
-            <button class="btn btn-primary" style="margin-top:1.7em" ng-click="addFall()">הוסף התרעה </button>
+            <button class="btn btn-primary" style="margin-top:1.7em" ng-click="addFall()">הוסף נפילה </button>
         </div>
     </div>
 </div>
@@ -31,26 +19,14 @@
         <table class="table">
             <thead>
                 <tr >
-                    <th style="text-align:right">שם ההתרעה</th>
-                    <th style="text-align:right">מרחב</th>
-                    <th  style="text-align:right">עיר</th>
                     <th  style="text-align:right">y</th>
                     <th  style="text-align:right">x</th>
                 </tr>
             </thead>
             <tbody class="text-right">
                 <tr ng-repeat="fall in  falls">
-                    <td>
-                        {{fall.name}}
-                    </td>
-                       <td>
-                        {{fall.space}}
-                    </td>
-                     <td>
-                        {{fall.city}}
-                    </td>
                       <td>
-                           {{fall.y}}
+                         {{fall.y}}
                     </td>
                       <td>
                          {{fall.x}}
@@ -64,7 +40,7 @@
 </div>
 
 
-<h3 class="text-right">התרעות בזמן אמת</h3>
+<h3 class="text-right">נפילות בזמן אמת</h3>
 <div class="row">
     <div class="col-lg-12">
         <map id="fallMap">
